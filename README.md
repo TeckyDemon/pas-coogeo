@@ -26,11 +26,13 @@
 - [Content](#content)
 - [Prerequisites](#prerequisites)
   - [Windows](#windows)
-  - [Linux](#linux)
-    - [APT](#apt)
-    - [Pacman](#pacman)
-  - [MacOS](#macos)
+  - [Unix](#unix)
+    - [Debian/Ubuntu](#apt)
+    - [Arch Linux/Manjaro](#pacman)
+    - [CentOS](#yum)
+    - [MacOS](#homebrew)
 - [Installation](#installation)
+- [Usage](#usage)
 - [Documentation](#documentation)
   - [Methods](#methods)
 - [Authors](#authors)
@@ -41,43 +43,61 @@
 
 ### Windows
 
-Install Pascal: https://www.freepascal.org/download.html
-
-### Linux
-
-#### APT
-
+* Install [Git](https://git-scm.com/download/win).
+* Install [Pascal](https://www.freepascal.org/download.html).
+* Run following command in the command prompt:
 ```
-sudo apt update && sudo apt upgrade -y
-sudo apt install fpc -y
+git clone "https://github.com/DeBos99/pas-coogeo.git"
 ```
 
-#### Pacman
+### Unix
 
-```
-sudo pacman -Syu --noconfirm
-sudo pacman -S fpc --noconfirm
-```
+#### <a name="APT">Debian/Ubuntu based
 
-### MacOS
-
+* Run following commands in the terminal:
 ```
-brew update && brew upgrade
-brew install fpc
+sudo apt install git fpc -y
+git clone "https://github.com/DeBos99/pas-coogeo.git"
 ```
 
-## Installation
+#### <a name="Pacman">Arch Linux/Manjaro
 
-`git clone "https://github.com/DeBos99/pas-coogeo.git"`
+* Run following commands in the terminal:
+```
+sudo pacman -S git fpc --noconfirm
+git clone "https://github.com/DeBos99/pas-coogeo.git"
+```
 
-Move the file **coogeo.pas** to your project directory and add `uses coogeo` to your source file.
+#### <a name="YUM">CentOS
+
+* Run following commands in the terminal:
+```
+sudo yum install git fpc -y
+git clone "https://github.com/DeBos99/pas-coogeo.git"
+```
+
+#### <a name="Homebrew">MacOS
+
+* Run following commands in the terminal:
+```
+brew install git fpc
+git clone "https://github.com/DeBos99/pas-coogeo.git"
+```
+
+## Usage
+
+* Move the file [coogeo.pas](coogeo.pas) to your project directory.
+* Add following line at the top of your source file:
+```
+uses 'coogeo'
+```
 
 ## Documentation
 
 ### Methods
 
 | Method                | Description                                         |
-| :---                  | :---                                                |
+| :-------------------- | :-------------------------------------------------- |
 | Distance(x1,y1,x2,y2) | Returns distance between two points.                |
 | Midpoint(x1,y1,x2,y2) | Returns coordinates of the line joining two points. |
 | Slope(x1,y1,x2,y2)    | Returns slope of line joining two points.           |
